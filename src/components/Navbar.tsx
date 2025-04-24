@@ -7,34 +7,38 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-black/90 backdrop-blur-sm py-4 fixed w-full top-0 z-50">
+    <nav className="bg-[#FFCC2A] py-4 fixed w-full top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <a href="#" className="text-2xl font-serif font-bold text-white">
-            Cachaça do Padre
-          </a>
+          <div className="flex items-center">
+            <img
+              src="/lovable-uploads/a018daca-d6e2-4baa-a473-3684a4986ef6.png"
+              alt="Logo Cachaça do Padre"
+              className="h-12 w-auto"
+            />
+          </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#inicio" className="text-white hover:text-primary transition-colors">
+            <a href="#inicio" className="text-black hover:text-black/80 transition-colors">
               Início
             </a>
-            <a href="#produtos" className="text-white hover:text-primary transition-colors">
+            <a href="#produtos" className="text-black hover:text-black/80 transition-colors">
               Produtos
             </a>
-            <a href="#historia" className="text-white hover:text-primary transition-colors">
+            <a href="#historia" className="text-black hover:text-black/80 transition-colors">
               História
             </a>
-            <a href="#contato" className="text-white hover:text-primary transition-colors">
-              Contato
+            <a href="#galeria" className="text-black hover:text-black/80 transition-colors">
+              Galeria
             </a>
-            <Button variant="ghost" className="text-white">
+            <Button variant="ghost" className="text-black">
               <ShoppingCart />
             </Button>
           </div>
 
           <Button
             variant="ghost"
-            className="md:hidden text-white"
+            className="md:hidden text-black"
             onClick={() => setIsOpen(!isOpen)}
           >
             <Menu className="h-6 w-6" />
@@ -42,19 +46,19 @@ export function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-4 bg-black/95 backdrop-blur-sm py-4">
+          <div className="md:hidden mt-4 bg-[#FFCC2A] py-4">
             <div className="flex flex-col space-y-4">
-              <a href="#inicio" className="text-white hover:text-primary transition-colors text-center">
+              <a href="#inicio" className="text-black hover:text-black/80 transition-colors text-center">
                 Início
               </a>
-              <a href="#produtos" className="text-white hover:text-primary transition-colors text-center">
+              <a href="#produtos" className="text-black hover:text-black/80 transition-colors text-center">
                 Produtos
               </a>
-              <a href="#historia" className="text-white hover:text-primary transition-colors text-center">
+              <a href="#historia" className="text-black hover:text-black/80 transition-colors text-center">
                 História
               </a>
-              <a href="#contato" className="text-white hover:text-primary transition-colors text-center">
-                Contato
+              <a href="#galeria" className="text-black hover:text-black/80 transition-colors text-center">
+                Galeria
               </a>
             </div>
           </div>

@@ -8,25 +8,34 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, WhatsApp } from "lucide-react";
 
 const Index = () => {
   const products = [
     {
       name: "Cachaça do Padre Original",
       price: "R$ 89,90",
-      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+      image: "/lovable-uploads/9e6609bc-1c14-411b-aa4b-2d93fccc75c0.png",
     },
     {
       name: "Cachaça do Padre Premium",
       price: "R$ 129,90",
-      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9",
+      image: "/lovable-uploads/9e6609bc-1c14-411b-aa4b-2d93fccc75c0.png",
     },
     {
       name: "Cachaça do Padre Reserva",
       price: "R$ 159,90",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+      image: "/lovable-uploads/9e6609bc-1c14-411b-aa4b-2d93fccc75c0.png",
     },
+  ];
+
+  const galleryImages = [
+    "/lovable-uploads/769bef46-6b6b-42dc-96fd-399145a088bf.png",
+    "/lovable-uploads/1c809529-c2c7-4fc0-96d9-00a6d036f593.png",
+    "/lovable-uploads/ca592e47-296d-4c7b-bbcb-7cb26fd4958e.png",
+    "/lovable-uploads/b1cf681d-c6b9-469e-adc9-8d171160f8a7.png",
+    "/lovable-uploads/8a348f18-74ca-4593-aeac-0483c3a0083b.png",
+    "/lovable-uploads/0ea62e48-1379-4881-9094-5afb7fce55f9.png",
   ];
 
   return (
@@ -34,9 +43,9 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-screen">
+      <section id="inicio" className="relative h-screen">
         <img
-          src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb"
+          src="/lovable-uploads/9e6609bc-1c14-411b-aa4b-2d93fccc75c0.png"
           alt="Cachaça do Padre Hero"
           className="w-full h-full object-cover brightness-75"
         />
@@ -65,61 +74,64 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Best Sellers Section */}
-      <section className="py-16 bg-white">
+      {/* Products Section */}
+      <section id="produtos" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-serif font-bold text-center mb-12">
-            MAIS VENDIDOS
+            NOSSOS PRODUTOS
           </h2>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-5xl mx-auto"
-          >
-            <CarouselContent>
-              {products.map((product, index) => (
-                <CarouselItem key={index} className="md:basis-1/3">
-                  <div className="text-center p-4">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-64 object-cover mb-4 rounded-lg"
-                    />
-                    <h3 className="font-serif font-bold mb-2">{product.name}</h3>
-                    <p className="text-xl mb-4">{product.price}</p>
-                    <Button className="w-full bg-primary hover:bg-primary/90">
-                      <ShoppingCart className="mr-2" />
-                      Adicionar ao carrinho
-                    </Button>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div key={index} className="text-center p-4">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-64 object-contain mb-4"
+                />
+                <h3 className="font-serif font-bold mb-2">{product.name}</h3>
+                <p className="text-xl mb-4">{product.price}</p>
+                <Button className="w-full bg-primary hover:bg-primary/90">
+                  <ShoppingCart className="mr-2" />
+                  Adicionar ao carrinho
+                </Button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Heritage Section */}
-      <section className="py-16 bg-secondary/20">
+      {/* History Section */}
+      <section id="historia" className="py-16 bg-secondary/20">
         <div className="container mx-auto px-4 text-center">
-          <img
-            src="/lovable-uploads/a018daca-d6e2-4baa-a473-3684a4986ef6.png"
-            alt="Logo Cachaça do Padre"
-            className="w-32 h-32 mx-auto mb-8"
-          />
           <h2 className="text-3xl font-serif font-bold mb-6">
-            HÁ MAIS DE 50 ANOS
+            NOSSA HISTÓRIA
           </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Levando a Cachaça do Padre aos apreciadores em toda Paraíba e Brasil.
+            Desde 1973, na cidade de Areia, Paraíba, a Destilaria Dom Marcos mantém viva a tradição da 
+            produção artesanal da Cachaça do Padre. Nossa cachaça é produzida a partir da cana-de-açúcar 
+            cultivada em solo paraibano, colhida manualmente e processada no mesmo dia, garantindo a 
+            qualidade e o sabor único que conquistou apreciadores em todo o Brasil.
           </p>
-          <Button variant="outline" size="lg">
-            Todos os Produtos
-          </Button>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="galeria" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif font-bold text-center mb-12">
+            GALERIA
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="aspect-square overflow-hidden rounded-lg">
+                <img
+                  src={image}
+                  alt={`Galeria Cachaça do Padre ${index + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -134,6 +146,16 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/5583999999999"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50"
+      >
+        <WhatsApp className="w-6 h-6" />
+      </a>
     </div>
   );
 };
