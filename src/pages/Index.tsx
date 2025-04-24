@@ -54,7 +54,7 @@ const Index = () => {
             Cachaça do Padre
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-shadow">
-            Uma bebida abençoada desde sempre
+            Uma bebida abençoada!
           </p>
           <Button 
             className="bg-primary hover:bg-primary/90 text-white"
