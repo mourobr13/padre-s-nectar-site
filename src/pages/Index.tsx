@@ -94,7 +94,7 @@ const Index = () => {
                       Adicionar ao carrinho
                     </Button>
                   </div>
-                </CarouvelItem>
+                </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious className="hidden md:flex" />
