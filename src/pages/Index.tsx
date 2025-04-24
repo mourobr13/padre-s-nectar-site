@@ -1,14 +1,14 @@
-
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { ShoppingCart, MessageSquare } from "lucide-react";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
+import AgeVerificationDialog from "@/components/AgeVerificationDialog";
+import DomMarcosCarousel from "@/components/DomMarcosCarousel";
 
 const Index = () => {
   const products = [
@@ -40,6 +40,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <AgeVerificationDialog />
       <Navbar />
       
       {/* Hero Section */}
@@ -100,18 +101,55 @@ const Index = () => {
         </div>
       </section>
 
-      {/* History Section */}
+      {/* History Section with Tabs */}
       <section id="historia" className="py-16 bg-secondary/20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif font-bold mb-6">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif font-bold text-center mb-8">
             NOSSA HISTÓRIA
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Desde 1973, na cidade de Areia, Paraíba, a Destilaria Dom Marcos mantém viva a tradição da 
-            produção artesanal da Cachaça do Padre. Nossa cachaça é produzida a partir da cana-de-açúcar 
-            cultivada em solo paraibano, colhida manualmente e processada no mesmo dia, garantindo a 
-            qualidade e o sabor único que conquistou apreciadores em todo o Brasil.
-          </p>
+          <Tabs defaultValue="historia" className="w-full">
+            <TabsList className="w-full justify-center mb-8">
+              <TabsTrigger value="historia">Nossa História</TabsTrigger>
+              <TabsTrigger value="premiacoes">Premiações</TabsTrigger>
+              <TabsTrigger value="dom-marcos">Dom Marcos</TabsTrigger>
+            </TabsList>
+            <TabsContent value="historia">
+              <p className="text-lg max-w-2xl mx-auto text-center">
+                Desde 1973, na cidade de Areia, Paraíba, a Destilaria Dom Marcos mantém viva a tradição da 
+                produção artesanal da Cachaça do Padre. Nossa cachaça é produzida a partir da cana-de-açúcar 
+                cultivada em solo paraibano, colhida manualmente e processada no mesmo dia, garantindo a 
+                qualidade e o sabor único que conquistou apreciadores em todo o Brasil.
+              </p>
+            </TabsContent>
+            <TabsContent value="premiacoes">
+              <div className="text-lg max-w-2xl mx-auto text-center">
+                <p className="mb-4">
+                  Nossa cachaça tem sido reconhecida em diversos concursos e premiações:
+                </p>
+                <ul className="list-disc list-inside">
+                  <li>Medalha de Ouro - Concurso Nacional de Cachaças 2022</li>
+                  <li>Melhor Cachaça Artesanal - Festival de Bebidas do Nordeste 2023</li>
+                  <li>Prêmio Qualidade Brasil - Categoria Cachaças Premium 2024</li>
+                </ul>
+              </div>
+            </TabsContent>
+            <TabsContent value="dom-marcos">
+              <div className="space-y-8">
+                <DomMarcosCarousel />
+                <div className="text-lg max-w-3xl mx-auto text-center space-y-4">
+                  <p>
+                    Conheça o Parque Industrial Dom Marcos, em Areia, na Paraíba, onde a tradição e a qualidade se encontram na produção Cachaça do Padre! 🍹
+                  </p>
+                  <p>
+                    Areia, localizada no belo Brejo paraibano, é agora o segundo município do Brasil com mais estabelecimentos produtores de cachaça, conforme o Anuário da Cachaça 2022. 🏆 Com o título de Capital Paraibana da Cachaça, a cidade celebra a riqueza cultural e o sabor único de sua produção. A Paraíba é uma das maiores produtoras de cachaça do país.
+                  </p>
+                  <p>
+                    Aqui, a Cachaça do Padre está sendo cuidadosamente elaborada, uma verdadeira bebida abençoada que traz um pedaço do nosso coração e da nossa história em cada gole. Venha descobrir e saborear essa delícia!
+                  </p>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
