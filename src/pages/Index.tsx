@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ShoppingCart, WhatsApp } from "lucide-react";
+import { ShoppingCart, MessageSquare } from "lucide-react";
 
 const Index = () => {
   const products = [
@@ -154,7 +154,7 @@ const Index = () => {
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50"
       >
-        <WhatsApp className="w-6 h-6" />
+        <MessageSquare className="w-6 h-6" />
       </a>
     </div>
   );
