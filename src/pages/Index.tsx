@@ -1,122 +1,125 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
-import { Package, Star, Wine } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { ShoppingCart } from "lucide-react";
 
 const Index = () => {
+  const products = [
+    {
+      name: "Cachaça do Padre Original",
+      price: "R$ 89,90",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+    },
+    {
+      name: "Cachaça do Padre Premium",
+      price: "R$ 129,90",
+      image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9",
+    },
+    {
+      name: "Cachaça do Padre Reserva",
+      price: "R$ 159,90",
+      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       
       {/* Hero Section */}
-      <section id="inicio" className="pt-24 lg:pt-32 pb-16 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
-            <img
-              src="/lovable-uploads/a018daca-d6e2-4baa-a473-3684a4986ef6.png"
-              alt="Logo Cachaça do Padre"
-              className="w-48 h-48 mb-8"
-            />
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-black mb-4">
-              Cachaça do Padre
-            </h1>
-            <p className="text-xl md:text-2xl text-black/80 mb-8 font-serif">
-              Uma bebida abençoada
-            </p>
-            <Button className="bg-primary hover:bg-primary/90 text-white">
-              Conheça nossa história
-            </Button>
-          </div>
+      <section className="relative h-screen">
+        <img
+          src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb"
+          alt="Cachaça do Padre Hero"
+          className="w-full h-full object-cover brightness-75"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4 text-shadow">
+            Cachaça do Padre
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-shadow">
+            Uma bebida abençoada desde sempre
+          </p>
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white"
+            size="lg"
+          >
+            Conheça nossos produtos
+          </Button>
         </div>
       </section>
 
-      {/* História Section */}
-      <section id="historia" className="py-16 bg-white">
+      {/* Free Shipping Banner */}
+      <div className="bg-secondary py-4">
+        <div className="container mx-auto text-center">
+          <p className="text-lg font-medium">
+            FRETE GRÁTIS em compras acima de R$ 150,00
+          </p>
+        </div>
+      </div>
+
+      {/* Best Sellers Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12">
-            Nossa História
+          <h2 className="text-3xl font-serif font-bold text-center mb-12">
+            MAIS VENDIDOS
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <p className="text-lg">
-                Tradição e qualidade são as marcas da Cachaça do Padre, produzida artesanalmente
-                na Destilaria Dom Marcos, em Areia, Paraíba.
-              </p>
-              <p className="text-lg">
-                Nossa cachaça é fruto de um processo cuidadoso que preserva a essência
-                e o sabor único da verdadeira cachaça artesanal paraibana.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="bg-secondary/20">
-                <CardContent className="p-6 flex flex-col items-center">
-                  <Star className="w-8 h-8 text-primary mb-2" />
-                  <h3 className="font-serif font-bold">Qualidade</h3>
-                </CardContent>
-              </Card>
-              <Card className="bg-secondary/20">
-                <CardContent className="p-6 flex flex-col items-center">
-                  <Package className="w-8 h-8 text-primary mb-2" />
-                  <h3 className="font-serif font-bold">Artesanal</h3>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent>
+              {products.map((product, index) => (
+                <CarouselItem key={index} className="md:basis-1/3">
+                  <div className="text-center p-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-64 object-cover mb-4 rounded-lg"
+                    />
+                    <h3 className="font-serif font-bold mb-2">{product.name}</h3>
+                    <p className="text-xl mb-4">{product.price}</p>
+                    <Button className="w-full bg-primary hover:bg-primary/90">
+                      <ShoppingCart className="mr-2" />
+                      Adicionar ao carrinho
+                    </Button>
+                  </div>
+                </CarouvelItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </section>
 
-      {/* Produto Section */}
-      <section id="produto" className="py-16 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12">
-            Nosso Produto
+      {/* Heritage Section */}
+      <section className="py-16 bg-secondary/20">
+        <div className="container mx-auto px-4 text-center">
+          <img
+            src="/lovable-uploads/a018daca-d6e2-4baa-a473-3684a4986ef6.png"
+            alt="Logo Cachaça do Padre"
+            className="w-32 h-32 mx-auto mb-8"
+          />
+          <h2 className="text-3xl font-serif font-bold mb-6">
+            HÁ MAIS DE 50 ANOS
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1">
-              <img
-                src="/lovable-uploads/a018daca-d6e2-4baa-a473-3684a4986ef6.png"
-                alt="Garrafa Cachaça do Padre"
-                className="w-full max-w-md mx-auto"
-              />
-            </div>
-            <div className="order-1 md:order-2 space-y-6">
-              <div className="flex items-center space-x-4">
-                <Wine className="w-8 h-8 text-primary" />
-                <div>
-                  <h3 className="font-serif font-bold text-xl">Sabor Único</h3>
-                  <p>Produzida com cana-de-açúcar selecionada</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Star className="w-8 h-8 text-primary" />
-                <div>
-                  <h3 className="font-serif font-bold text-xl">Qualidade Premium</h3>
-                  <p>Processo artesanal que preserva o sabor</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contato Section */}
-      <section id="contato" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12">
-            Entre em Contato
-          </h2>
-          <div className="max-w-xl mx-auto text-center">
-            <p className="text-lg mb-8">
-              Para mais informações sobre nossos produtos, entre em contato através do nosso Instagram
-            </p>
-            <Button
-              className="bg-primary hover:bg-primary/90 text-white"
-              onClick={() => window.open('https://www.instagram.com/cachacadopadre', '_blank')}
-            >
-              Siga-nos no Instagram
-            </Button>
-          </div>
+          <p className="text-lg max-w-2xl mx-auto mb-8">
+            Levando a Cachaça do Padre aos apreciadores em toda Paraíba e Brasil.
+          </p>
+          <Button variant="outline" size="lg">
+            Todos os Produtos
+          </Button>
         </div>
       </section>
 

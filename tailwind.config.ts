@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,7 +61,19 @@ export default {
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
       },
+      textShadow: {
+        DEFAULT: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        '.text-shadow': {
+          'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        },
+      });
+    },
+  ],
 } satisfies Config;
